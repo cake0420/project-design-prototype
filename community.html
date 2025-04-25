@@ -5,27 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>재능 기부 플랫폼 - 커뮤니티</title>
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: { primary: "#4F46E5", secondary: "#10B981" },
-            borderRadius: {
-              none: "0px",
-              sm: "4px",
-              DEFAULT: "8px",
-              md: "12px",
-              lg: "16px",
-              xl: "20px",
-              "2xl": "24px",
-              "3xl": "32px",
-              full: "9999px",
-              button: "8px",
-            },
-          },
-        },
-      };
-    </script>
+    <link rel="stylesheet" href="css/community.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -36,91 +16,6 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <style>
-      :where([class^="ri-"])::before { content: "\f3c2"; }
-      body {
-      font-family: 'Noto Sans KR', sans-serif;
-      background-color: #f9fafb;
-      }
-      .custom-scrollbar::-webkit-scrollbar {
-      width: 6px;
-      }
-      .custom-scrollbar::-webkit-scrollbar-track {
-      background: #f1f1f1;
-      border-radius: 10px;
-      }
-      .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #d1d5db;
-      border-radius: 10px;
-      }
-      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-      background: #9ca3af;
-      }
-      .custom-switch {
-      position: relative;
-      display: inline-block;
-      width: 40px;
-      height: 20px;
-      }
-      .custom-switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-      }
-      .switch-slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #e5e7eb;
-      transition: .4s;
-      border-radius: 20px;
-      }
-      .switch-slider:before {
-      position: absolute;
-      content: "";
-      height: 16px;
-      width: 16px;
-      left: 2px;
-      bottom: 2px;
-      background-color: white;
-      transition: .4s;
-      border-radius: 50%;
-      }
-      input:checked + .switch-slider {
-      background-color: #4F46E5;
-      }
-      input:checked + .switch-slider:before {
-      transform: translateX(20px);
-      }
-      .custom-checkbox {
-      appearance: none;
-      width: 18px;
-      height: 18px;
-      border: 2px solid #d1d5db;
-      border-radius: 4px;
-      background-color: white;
-      cursor: pointer;
-      position: relative;
-      }
-      .custom-checkbox:checked {
-      background-color: #4F46E5;
-      border-color: #4F46E5;
-      }
-      .custom-checkbox:checked::after {
-      content: '';
-      position: absolute;
-      left: 5px;
-      top: 2px;
-      width: 6px;
-      height: 10px;
-      border: solid white;
-      border-width: 0 2px 2px 0;
-      transform: rotate(45deg);
-      }
-    </style>
   </head>
   <body>
     <header class="bg-white shadow-sm">
@@ -1074,32 +969,7 @@
         </div>
       </div>
     </footer>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // 정렬 드롭다운
-        const sortButton = document.getElementById("sortButton");
-        const sortDropdown = document.getElementById("sortDropdown");
-        if (sortButton && sortDropdown) {
-          sortButton.addEventListener("click", function () {
-            sortDropdown.classList.toggle("hidden");
-          });
-          document.addEventListener("click", function (event) {
-            if (
-              !sortButton.contains(event.target) &&
-              !sortDropdown.contains(event.target)
-            ) {
-              sortDropdown.classList.add("hidden");
-            }
-          });
-          const sortOptions = sortDropdown.querySelectorAll("button");
-          sortOptions.forEach((option) => {
-            option.addEventListener("click", function () {
-              sortButton.querySelector("span").textContent = this.textContent;
-              sortDropdown.classList.add("hidden");
-            });
-          });
-        }
-      });
-    </script>
+    <script src="js/community.js"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
   </body>
 </html>
