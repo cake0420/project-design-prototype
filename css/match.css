@@ -1,43 +1,33 @@
-:where([class^="ri-"])::before {
-    content: "\f3c2";
-}
-
+:where([class^="ri-"])::before { content: "\f3c2"; }
 body {
     font-family: 'Noto Sans KR', sans-serif;
     background-color: #f9fafb;
 }
-
 .custom-scrollbar::-webkit-scrollbar {
     width: 6px;
 }
-
 .custom-scrollbar::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 10px;
 }
-
 .custom-scrollbar::-webkit-scrollbar-thumb {
     background: #d1d5db;
     border-radius: 10px;
 }
-
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: #9ca3af;
 }
-
 .custom-switch {
     position: relative;
     display: inline-block;
     width: 40px;
     height: 20px;
 }
-
 .custom-switch input {
     opacity: 0;
     width: 0;
     height: 0;
 }
-
 .switch-slider {
     position: absolute;
     cursor: pointer;
@@ -49,7 +39,6 @@ body {
     transition: .4s;
     border-radius: 20px;
 }
-
 .switch-slider:before {
     position: absolute;
     content: "";
@@ -61,15 +50,12 @@ body {
     transition: .4s;
     border-radius: 50%;
 }
-
-input:checked+.switch-slider {
+input:checked + .switch-slider {
     background-color: #4F46E5;
 }
-
-input:checked+.switch-slider:before {
+input:checked + .switch-slider:before {
     transform: translateX(20px);
 }
-
 .custom-checkbox {
     appearance: none;
     width: 18px;
@@ -80,12 +66,10 @@ input:checked+.switch-slider:before {
     cursor: pointer;
     position: relative;
 }
-
 .custom-checkbox:checked {
     background-color: #4F46E5;
     border-color: #4F46E5;
 }
-
 .custom-checkbox:checked::after {
     content: '';
     position: absolute;
@@ -97,7 +81,6 @@ input:checked+.switch-slider:before {
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
 }
-
 .custom-radio {
     appearance: none;
     width: 18px;
@@ -108,11 +91,9 @@ input:checked+.switch-slider:before {
     cursor: pointer;
     position: relative;
 }
-
 .custom-radio:checked {
     border-color: #4F46E5;
 }
-
 .custom-radio:checked::after {
     content: '';
     position: absolute;
@@ -123,7 +104,6 @@ input:checked+.switch-slider:before {
     border-radius: 50%;
     background-color: #4F46E5;
 }
-
 .custom-range {
     -webkit-appearance: none;
     width: 100%;
@@ -132,7 +112,6 @@ input:checked+.switch-slider:before {
     background: #e5e7eb;
     outline: none;
 }
-
 .custom-range::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -142,7 +121,6 @@ input:checked+.switch-slider:before {
     background: #4F46E5;
     cursor: pointer;
 }
-
 .custom-range::-moz-range-thumb {
     width: 18px;
     height: 18px;
@@ -151,18 +129,15 @@ input:checked+.switch-slider:before {
     cursor: pointer;
     border: none;
 }
-
 .rti--container {
     border: none !important;
     box-shadow: none !important;
 }
-
 .editor-toolbar {
     display: flex;
     gap: 8px;
     margin-bottom: 8px;
 }
-
 .editor-button {
     padding: 4px 8px;
     background-color: #f3f4f6;
@@ -170,11 +145,9 @@ input:checked+.switch-slider:before {
     font-size: 14px;
     cursor: pointer;
 }
-
 .editor-button:hover {
     background-color: #e5e7eb;
 }
-
 .editor-content {
     min-height: 150px;
     border: 1px solid #e5e7eb;
@@ -182,7 +155,6 @@ input:checked+.switch-slider:before {
     padding: 12px;
     outline: none;
 }
-
 /* Add this to define the rounded-button class */
 .rounded-button {
     border-radius: 8px;
