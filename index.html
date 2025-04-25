@@ -27,42 +27,10 @@
         }
       }
     </script>
+    <script src="js/include.js"></script>
   </head>
   <body>
-    <header class="bg-white shadow-sm">
-      <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div class="flex items-center">
-          <h1 class="text-2xl font-['Pacifico'] text-primary">재능나눔</h1>
-          <nav class="ml-10 hidden md:block">
-            <ul class="flex space-x-8">
-              <li>
-                <a href="#" class="text-primary font-medium border-b-2 border-primary pb-1">홈</a>
-              </li>
-              <li>
-                <a href="match.html" class="text-gray-800 hover:text-primary font-medium">매칭</a>
-              </li>
-              <li>
-                <a href="community.html" class="text-gray-800 hover:text-primary font-medium">커뮤니티</a>
-              </li>
-              <li>
-                <a href="#" class="text-gray-800 hover:text-primary font-medium">마이페이지</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div class="flex items-center space-x-4">
-          <a href="login.html" class="bg-white text-gray-700 border border-gray-300 px-4 py-2 rounded-button whitespace-nowrap hover:bg-gray-50">
-            로그인
-          </a>
-          <a href="register.html" class="bg-primary text-white px-4 py-2 rounded-button whitespace-nowrap hover:bg-indigo-600">
-            회원가입
-          </a>
-          <div class="w-10 h-10 flex items-center justify-center md:hidden">
-            <i class="ri-menu-line text-gray-700 ri-lg"></i>
-          </div>
-        </div>
-      </div>
-    </header>
+    <div id="header-placeholder"></div>
 
     <main>
       <!-- 히어로 섹션 -->
@@ -104,7 +72,7 @@
               재능나눔은 간단한 3단계 과정으로 여러분의 재능을 나누거나 필요한 도움을 받을 수 있습니다.
             </p>
           </div>
-          
+
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="bg-gray-50 p-6 rounded-lg text-center">
               <div class="w-16 h-16 bg-indigo-100 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
@@ -115,7 +83,7 @@
                 나의 재능과 경험을 프로필에 등록하고, 어떤 분야에서 도움을 줄 수 있는지 소개하세요.
               </p>
             </div>
-            
+
             <div class="bg-gray-50 p-6 rounded-lg text-center">
               <div class="w-16 h-16 bg-indigo-100 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
                 <i class="ri-search-line text-2xl"></i>
@@ -125,7 +93,7 @@
                 필요한 재능을 검색하거나, 나의 재능을 필요로 하는 사람들을 찾아 연결하세요.
               </p>
             </div>
-            
+
             <div class="bg-gray-50 p-6 rounded-lg text-center">
               <div class="w-16 h-16 bg-indigo-100 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
                 <i class="ri-exchange-line text-2xl"></i>
@@ -148,7 +116,7 @@
               다양한 분야의 재능을 탐색하고 나에게 맞는 카테고리를 찾아보세요.
             </p>
           </div>
-          
+
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             <a href="#" class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition text-center">
               <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
@@ -157,7 +125,7 @@
               <h3 class="font-medium">프로그래밍</h3>
               <p class="text-sm text-gray-500 mt-1">125명 활동중</p>
             </a>
-            
+
             <a href="#" class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition text-center">
               <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-3">
                 <i class="ri-palette-line text-xl"></i>
@@ -165,7 +133,7 @@
               <h3 class="font-medium">디자인</h3>
               <p class="text-sm text-gray-500 mt-1">98명 활동중</p>
             </a>
-            
+
             <a href="#" class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition text-center">
               <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-3">
                 <i class="ri-english-input text-xl"></i>
@@ -173,7 +141,7 @@
               <h3 class="font-medium">언어</h3>
               <p class="text-sm text-gray-500 mt-1">156명 활동중</p>
             </a>
-            
+
             <a href="#" class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition text-center">
               <div class="w-12 h-12 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center mx-auto mb-3">
                 <i class="ri-music-2-line text-xl"></i>
@@ -204,99 +172,7 @@
       </section>
     </main>
 
-    <footer class="bg-gray-800 text-white py-10">
-      <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <h3 class="text-xl font-['Pacifico'] mb-4">재능나눔</h3>
-            <p class="text-gray-300 text-sm">
-              모두가 함께 성장하는 재능 기부 플랫폼입니다. 여러분의 지식과
-              경험을 나누고, 새로운 것을 배워보세요.
-            </p>
-          </div>
-          <div>
-            <h4 class="font-medium mb-4">서비스</h4>
-            <ul class="space-y-2 text-gray-300 text-sm">
-              <li><a href="#" class="hover:text-white">재능 매칭</a></li>
-              <li><a href="#" class="hover:text-white">커뮤니티</a></li>
-              <li><a href="#" class="hover:text-white">온라인 클래스</a></li>
-              <li><a href="#" class="hover:text-white">멘토링</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="font-medium mb-4">정보</h4>
-            <ul class="space-y-2 text-gray-300 text-sm">
-              <li><a href="#" class="hover:text-white">이용약관</a></li>
-              <li><a href="#" class="hover:text-white">개인정보처리방침</a></li>
-              <li><a href="#" class="hover:text-white">자주 묻는 질문</a></li>
-              <li><a href="#" class="hover:text-white">공지사항</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="font-medium mb-4">문의하기</h4>
-            <ul class="space-y-2 text-gray-300 text-sm">
-              <li class="flex items-center">
-                <div class="w-5 h-5 flex items-center justify-center mr-2">
-                  <i class="ri-mail-line"></i>
-                </div>
-                <span>contact@talentshare.kr</span>
-              </li>
-              <li class="flex items-center">
-                <div class="w-5 h-5 flex items-center justify-center mr-2">
-                  <i class="ri-phone-line"></i>
-                </div>
-                <span>02-123-4567</span>
-              </li>
-              <li class="flex items-center">
-                <div class="w-5 h-5 flex items-center justify-center mr-2">
-                  <i class="ri-map-pin-line"></i>
-                </div>
-                <span>서울특별시 강남구 테헤란로 123</span>
-              </li>
-            </ul>
-            <div class="flex space-x-3 mt-4">
-              <a
-                href="#"
-                class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition"
-              >
-                <div class="w-4 h-4 flex items-center justify-center">
-                  <i class="ri-instagram-line"></i>
-                </div>
-              </a>
-              <a
-                href="#"
-                class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition"
-              >
-                <div class="w-4 h-4 flex items-center justify-center">
-                  <i class="ri-facebook-fill"></i>
-                </div>
-              </a>
-              <a
-                href="#"
-                class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition"
-              >
-                <div class="w-4 h-4 flex items-center justify-center">
-                  <i class="ri-youtube-fill"></i>
-                </div>
-              </a>
-              <a
-                href="#"
-                class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition"
-              >
-                <div class="w-4 h-4 flex items-center justify-center">
-                  <i class="ri-kakao-talk-fill"></i>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div
-          class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400 text-sm"
-        >
-          <p>© 2025 재능나눔. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
     <script src="js/script.js"></script>
   </body>
