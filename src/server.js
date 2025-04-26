@@ -42,6 +42,10 @@ app.get('/write-review', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'public', 'write-review.html'));
 });
 
+app.get('/more-details', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'public', 'more-details.html'));
+});
+
 app.get('/matching-type-selection', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'public', 'matching-type-selection.html'));
 });
