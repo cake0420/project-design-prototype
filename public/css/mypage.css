@@ -149,5 +149,20 @@ input:checked + .toggle-slider:before {
   color: #9CA3AF !important; /* Tailwind gray-400 color - Forced */
 }
 /* ====== End Fix (Written Reviews - Mentee Page) ====== */
-/* ====== 페이징 스타일 끝 ====== */
 
+/* ====== Fix for star icon color in more-details.html ====== */
+/* Target star icons within the content-list in more-details.html */
+#content-list div.border i.ri-star-fill {
+  color: #FACC15 !important; /* Tailwind yellow-400 color - Forced */
+}
+
+#content-list div.border i.ri-star-half-fill {
+  color: #FACC15 !important; /* Tailwind yellow-400 color - Forced */
+}
+
+#content-list div.border i.ri-star-line {
+  color: #9CA3AF !important; /* Tailwind gray-400 color - Forced */
+}
+/* ====== End Fix (more-details.html) ====== */
+
+/* ====== 페이징 스타일 끝 ====== */
