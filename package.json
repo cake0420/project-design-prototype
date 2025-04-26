@@ -4,6 +4,7 @@
   "description": "Talent sharing platform",
   "main": "index.js",
   "scripts": {
+    "build": "npm run build:css",
     "build:css": "postcss css/main.css css/community.css -o css/main.compiled.css",
     "watch:css": "postcss css/main.css css/community.css -o css/main.compiled.css --watch"
   },
