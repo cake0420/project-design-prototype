@@ -29,6 +29,31 @@
             <p class="text-gray-600">재능나눔에 가입하고 다양한 재능을 나눠보세요</p>
           </div>
 
+          <!-- 사용자 유형 선택 -->
+          <div class="mb-6">
+            <h3 class="text-lg font-medium mb-4">사용자 유형 선택</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition cursor-pointer user-type-option" data-type="mentee">
+                <div class="flex items-center gap-3 mb-2">
+                  <div class="w-6 h-6 flex items-center justify-center">
+                    <input type="radio" name="userType" value="mentee" class="custom-radio" checked>
+                  </div>
+                  <h4 class="font-medium">멘티로 가입</h4>
+                </div>
+                <p class="text-sm text-gray-600 pl-9">다양한 분야의 멘토에게 도움을 받고 배우고 싶은 분들을 위한 옵션입니다.</p>
+              </div>
+              <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition cursor-pointer user-type-option" data-type="mentor">
+                <div class="flex items-center gap-3 mb-2">
+                  <div class="w-6 h-6 flex items-center justify-center">
+                    <input type="radio" name="userType" value="mentor" class="custom-radio">
+                  </div>
+                  <h4 class="font-medium">멘토로 가입</h4>
+                </div>
+                <p class="text-sm text-gray-600 pl-9">자신의 지식과 경험을 나누고 다른 사람들을 도와주고 싶은 분들을 위한 옵션입니다.</p>
+              </div>
+            </div>
+          </div>
+
           <div class="space-y-4">
             <!-- 카카오 회원가입 -->
             <button class="w-full flex items-center justify-center gap-3 bg-kakao text-gray-800 py-3 px-4 rounded-button hover:bg-yellow-300 transition">
@@ -81,5 +106,6 @@
     <div id="footer-placeholder" class="mt-auto"></div>
 
     <script src="js/match.js"></script>
+    <script src="js/register.js"></script>
   </body>
 </html>

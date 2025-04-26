@@ -17,67 +17,7 @@
       rel="stylesheet"
     />
     <script src="./js/include.js"></script>
-    <style>
-      .tab-button {
-        padding: 1rem 1.5rem;
-        font-weight: 500;
-        color: #6b7280;
-        border-bottom: 2px solid transparent;
-        white-space: nowrap;
-      }
-      .tab-button:hover {
-        color: #4F46E5;
-      }
-      .tab-button.active {
-        color: #4F46E5;
-        border-bottom-color: #4F46E5;
-      }
-      .tab-content {
-        display: block;
-      }
-      .tab-content.hidden {
-        display: none;
-      }
-      .toggle-switch {
-        position: relative;
-        display: inline-block;
-        width: 50px;
-        height: 24px;
-      }
-      .toggle-switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
-      .toggle-slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        transition: .4s;
-        border-radius: 24px;
-      }
-      .toggle-slider:before {
-        position: absolute;
-        content: "";
-        height: 16px;
-        width: 16px;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        transition: .4s;
-        border-radius: 50%;
-      }
-      input:checked + .toggle-slider {
-        background-color: #4F46E5;
-      }
-      input:checked + .toggle-slider:before {
-        transform: translateX(26px);
-      }
-    </style>
+    <link rel="stylesheet" href="./css/mypage.css" />
   </head>
   <body class="bg-gray-50">
     <div id="header-placeholder"></div>
@@ -866,15 +806,9 @@
                   </div>
                   <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">사용자 유형</label>
-                    <div class="flex items-center gap-4">
-                      <label class="inline-flex items-center">
-                        <input type="radio" name="userType" value="mentee" class="custom-radio">
-                        <span class="ml-2 text-sm">멘티</span>
-                      </label>
-                      <label class="inline-flex items-center">
-                        <input type="radio" name="userType" value="mentor" class="custom-radio" checked>
-                        <span class="ml-2 text-sm">멘토</span>
-                      </label>
+                    <div class="flex items-center gap-2">
+                      <span class="bg-primary text-white text-xs px-2 py-1 rounded-full">멘토</span>
+                      <span class="text-xs text-gray-500">(회원가입 시 선택한 유형은 변경할 수 없습니다)</span>
                     </div>
                   </div>
                 </div>
@@ -960,49 +894,6 @@
               </div>
             </div>
 
-            <!-- 멘티 전용 설정 -->
-            <div id="mentee-settings" class="border-t border-gray-200 pt-6 hidden">
-              <h3 class="text-lg font-medium mb-4">멘티 설정</h3>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">관심사</label>
-                <div class="space-y-2">
-                  <div class="flex flex-wrap gap-2">
-                    <label class="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 cursor-pointer">
-                      <input type="checkbox" name="interests[]" value="프로그래밍" class="hidden">
-                      <span>#프로그래밍</span>
-                    </label>
-                    <label class="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 cursor-pointer">
-                      <input type="checkbox" name="interests[]" value="디자인" class="hidden">
-                      <span>#디자인</span>
-                    </label>
-                    <label class="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 cursor-pointer">
-                      <input type="checkbox" name="interests[]" value="교육" class="hidden">
-                      <span>#교육</span>
-                    </label>
-                    <label class="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 cursor-pointer">
-                      <input type="checkbox" name="interests[]" value="음악" class="hidden">
-                      <span>#음악</span>
-                    </label>
-                    <label class="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 cursor-pointer">
-                      <input type="checkbox" name="interests[]" value="언어" class="hidden">
-                      <span>#언어</span>
-                    </label>
-                    <label class="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 cursor-pointer">
-                      <input type="checkbox" name="interests[]" value="요가" class="hidden">
-                      <span>#요가</span>
-                    </label>
-                    <label class="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 cursor-pointer">
-                      <input type="checkbox" name="interests[]" value="취미" class="hidden">
-                      <span>#취미</span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div class="mt-4">
-                <label for="learning-goals" class="block text-sm font-medium text-gray-700 mb-1">학습 목표</label>
-                <textarea id="learning-goals" name="learning-goals" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="학습 목표를 입력하세요"></textarea>
-              </div>
-            </div>
 
             <!-- 저장 버튼 -->
             <div class="border-t border-gray-200 pt-6 flex justify-end">
@@ -1017,61 +908,6 @@
 
     <div id="footer-placeholder" class="mt-10"></div>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // 탭 전환 기능
-        const tabButtons = document.querySelectorAll('.tab-button');
-        const tabContents = document.querySelectorAll('.tab-content');
-
-        tabButtons.forEach(button => {
-          button.addEventListener('click', function() {
-            // 모든 탭 버튼에서 active 클래스 제거
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            // 클릭한 탭 버튼에 active 클래스 추가
-            this.classList.add('active');
-
-            // 모든 탭 컨텐츠 숨기기
-            tabContents.forEach(content => content.classList.add('hidden'));
-            // 선택한 탭 컨텐츠 표시
-            const tabId = this.getAttribute('data-tab');
-            document.getElementById(tabId + '-content').classList.remove('hidden');
-          });
-        });
-
-        // 사용자 유형 전환 기능
-        const userTypeRadios = document.querySelectorAll('input[name="userType"]');
-        const mentorSettings = document.getElementById('mentor-settings');
-        const menteeSettings = document.getElementById('mentee-settings');
-
-        userTypeRadios.forEach(radio => {
-          radio.addEventListener('change', function() {
-            if (this.value === 'mentor') {
-              mentorSettings.classList.remove('hidden');
-              menteeSettings.classList.add('hidden');
-            } else if (this.value === 'mentee') {
-              mentorSettings.classList.add('hidden');
-              menteeSettings.classList.remove('hidden');
-            }
-          });
-        });
-
-        // 관심사 태그 선택 기능
-        const interestLabels = document.querySelectorAll('label.inline-flex');
-        interestLabels.forEach(label => {
-          label.addEventListener('click', function() {
-            const checkbox = this.querySelector('input[type="checkbox"]');
-            checkbox.checked = !checkbox.checked;
-
-            if (checkbox.checked) {
-              this.classList.add('bg-primary', 'text-white');
-              this.classList.remove('bg-gray-100', 'text-gray-700');
-            } else {
-              this.classList.remove('bg-primary', 'text-white');
-              this.classList.add('bg-gray-100', 'text-gray-700');
-            }
-          });
-        });
-      });
-    </script>
+    <script src="./js/mypage.js"></script>
   </body>
 </html>
