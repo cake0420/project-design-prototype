@@ -20,24 +20,25 @@
   }
 
   /* 페이지네이션 버튼 스타일 */
-  nav.pagination {
+  /* 더 구체적인 선택자로 스타일 적용 */
+  main .pagination {
     @apply inline-flex rounded-md shadow-sm;
   }
 
-  nav.pagination > .pagination-item {
+  main .pagination > .pagination-item {
     @apply px-3 py-2 border border-gray-300 bg-white text-gray-500 hover:bg-gray-50;
     text-decoration: none;
   }
 
-  nav.pagination > .pagination-item.active {
+  main .pagination > .pagination-item.active {
     @apply bg-primary text-white;
   }
 
-  nav.pagination > .pagination-item:first-child {
+  main .pagination > .pagination-item:first-child {
     @apply rounded-l-md;
   }
 
-  nav.pagination > .pagination-item:last-child {
+  main .pagination > .pagination-item:last-child {
     @apply rounded-r-md;
   }
 }
