@@ -17,6 +17,38 @@
       rel="stylesheet"
     />
     <script src="js/include.js"></script>
+    <style>
+      /* 모달 애니메이션 */
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes scaleIn {
+        from { transform: scale(0.95); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+      }
+
+      .animate-fadeIn {
+        animation: fadeIn 0.3s ease-out forwards;
+      }
+
+      .animate-scaleIn {
+        animation: scaleIn 0.3s ease-out forwards;
+      }
+
+      /* 선택된 사용자 유형 강조 */
+      .user-type-option.selected {
+        border-color: #4F46E5;
+        background-color: #EEF2FF;
+      }
+
+      /* 버튼 호버 효과 */
+      .hover-scale:hover {
+        transform: scale(1.05);
+        transition: transform 0.2s ease;
+      }
+    </style>
   </head>
   <body class="bg-gray-50">
     <div id="header-placeholder"></div>
@@ -29,30 +61,6 @@
             <p class="text-gray-600">재능나눔에 가입하고 다양한 재능을 나눠보세요</p>
           </div>
 
-          <!-- 사용자 유형 선택 -->
-          <div class="mb-6">
-            <h3 class="text-lg font-medium mb-4">사용자 유형 선택</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition cursor-pointer user-type-option" data-type="mentee">
-                <div class="flex items-center gap-3 mb-2">
-                  <div class="w-6 h-6 flex items-center justify-center">
-                    <input type="radio" name="userType" value="mentee" class="custom-radio" checked>
-                  </div>
-                  <h4 class="font-medium">멘티로 가입</h4>
-                </div>
-                <p class="text-sm text-gray-600 pl-9">다양한 분야의 멘토에게 도움을 받고 배우고 싶은 분들을 위한 옵션입니다.</p>
-              </div>
-              <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition cursor-pointer user-type-option" data-type="mentor">
-                <div class="flex items-center gap-3 mb-2">
-                  <div class="w-6 h-6 flex items-center justify-center">
-                    <input type="radio" name="userType" value="mentor" class="custom-radio">
-                  </div>
-                  <h4 class="font-medium">멘토로 가입</h4>
-                </div>
-                <p class="text-sm text-gray-600 pl-9">자신의 지식과 경험을 나누고 다른 사람들을 도와주고 싶은 분들을 위한 옵션입니다.</p>
-              </div>
-            </div>
-          </div>
 
           <div class="space-y-4">
             <!-- 카카오 회원가입 -->
@@ -105,7 +113,62 @@
 
     <div id="footer-placeholder" class="mt-auto"></div>
 
-    <script src="js/match.js"></script>
-    <script src="js/register.js"></script>
+    <!-- 사용자 유형 선택 모달 -->
+    <div id="userTypeModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+      <div class="bg-white rounded-lg shadow-lg p-8 max-w-md w-full mx-4 animate-fadeIn">
+        <div class="text-center mb-8">
+          <div class="w-16 h-16 bg-indigo-100 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="ri-user-add-line text-3xl"></i>
+          </div>
+          <h2 class="text-2xl font-bold mb-2">사용자 유형 선택</h2>
+          <p class="text-gray-600">재능나눔에서 어떤 역할로 활동하고 싶으신가요?</p>
+          <div class="w-16 h-1 bg-primary mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 mb-8">
+          <div class="border-2 border-gray-200 rounded-lg p-6 hover:shadow-md transition cursor-pointer user-type-option" data-type="mentee">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-6 h-6 flex items-center justify-center">
+                <input type="radio" name="userType" value="mentee" class="custom-radio" checked>
+              </div>
+              <h4 class="font-medium text-lg">멘티로 가입</h4>
+            </div>
+            <div class="pl-9">
+              <p class="text-sm text-gray-600 mb-2">다양한 분야의 멘토에게 도움을 받고 배우고 싶은 분들을 위한 옵션입니다.</p>
+              <ul class="text-sm text-gray-600 list-disc list-inside">
+                <li>전문가의 지식과 경험을 배울 수 있습니다</li>
+                <li>다양한 분야의 멘토를 찾을 수 있습니다</li>
+                <li>맞춤형 학습과 피드백을 받을 수 있습니다</li>
+              </ul>
+            </div>
+          </div>
+          <div class="border-2 border-gray-200 rounded-lg p-6 hover:shadow-md transition cursor-pointer user-type-option" data-type="mentor">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-6 h-6 flex items-center justify-center">
+                <input type="radio" name="userType" value="mentor" class="custom-radio">
+              </div>
+              <h4 class="font-medium text-lg">멘토로 가입</h4>
+            </div>
+            <div class="pl-9">
+              <p class="text-sm text-gray-600 mb-2">자신의 지식과 경험을 나누고 다른 사람들을 도와주고 싶은 분들을 위한 옵션입니다.</p>
+              <ul class="text-sm text-gray-600 list-disc list-inside">
+                <li>자신의 전문 지식과 경험을 공유할 수 있습니다</li>
+                <li>다른 사람의 성장을 도울 수 있습니다</li>
+                <li>멘토링을 통해 자신의 역량도 향상시킬 수 있습니다</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-center">
+          <button id="confirmUserType" class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-indigo-600 transition-all transform hover:scale-105">
+            선택 완료
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/match.js"></script>
+    <script src="./js/register.js"></script>
   </body>
 </html>
