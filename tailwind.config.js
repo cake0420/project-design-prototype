@@ -1,6 +1,6 @@
 module.exports = {
     content: [
-        "./**/*.html",  // 모든 HTML 파일을 스캔합니다
+        "./public/**/*.html",  // 모든 HTML 파일을 스캔합니다
         "./js/**/*.js"  // JavaScript 파일도 스캔합니다
     ],
     darkMode: false, // 'media' or 'class' or boolean

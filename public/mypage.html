@@ -16,11 +16,10 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <script src="js/include.js"></script>
-    <link rel="stylesheet" href="css/mypage.css" />
+    <link rel="stylesheet" href="./css/mypage.css" />
   </head>
   <body class="bg-gray-50">
-    <div id="header-placeholder"></div>
+  <div data-include-path="./includes/header.html"></div>
 
     <main class="container mx-auto px-4 py-8">
       <!-- 사용자 프로필 헤더 -->
@@ -511,12 +510,42 @@
 
           <!-- 페이지네이션 -->
           <div class="flex justify-center mt-6">
-            <nav class="community-pagination pagination">
-              <a href="#" class="pagination-item">이전</a>
-              <a href="#" class="pagination-item active">1</a>
-              <a href="#" class="pagination-item">2</a>
-              <a href="#" class="pagination-item">3</a>
-              <a href="#" class="pagination-item">다음</a>
+            <nav class="inline-flex rounded-md shadow-sm">
+              <a
+                      href="#"
+                      class="px-3 py-2 border border-gray-300 bg-white text-gray-500 hover:bg-gray-50 rounded-l-md"
+              >이전</a
+              >
+              <a
+                      href="#"
+                      class="px-3 py-2 border-t border-b border-gray-300 bg-primary text-white"
+              >1</a
+              >
+              <a
+                      href="#"
+                      class="px-3 py-2 border-t border-b border-gray-300 bg-white text-gray-500 hover:bg-gray-50"
+              >2</a
+              >
+              <a
+                      href="#"
+                      class="px-3 py-2 border-t border-b border-gray-300 bg-white text-gray-500 hover:bg-gray-50"
+              >3</a
+              >
+              <a
+                      href="#"
+                      class="px-3 py-2 border-t border-b border-gray-300 bg-white text-gray-500 hover:bg-gray-50"
+              >4</a
+              >
+              <a
+                      href="#"
+                      class="px-3 py-2 border-t border-b border-gray-300 bg-white text-gray-500 hover:bg-gray-50"
+              >5</a
+              >
+              <a
+                      href="#"
+                      class="px-3 py-2 border border-gray-300 bg-white text-gray-500 hover:bg-gray-50 rounded-r-md"
+              >다음</a
+              >
             </nav>
           </div>
         </div>
@@ -943,8 +972,7 @@
       </div>
     </main>
 
-    <div id="footer-placeholder" class="mt-10"></div>
-
-    <script src="js/mypage.js"></script>
+    <div data-include-path="./includes/footer.html"></div>
+    <script src="./js/mypage.js"></script>
   </body>
 </html>

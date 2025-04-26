@@ -1,5 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
   // 정렬 드롭다운
+
+  const includeElements = document.querySelectorAll('[data-include-path]');
+
+  includeElements.forEach(async function(el) {
+    const path = el.getAttribute('data-include-path');
+    const response = await fetch(path);
+    const html = await response.text();
+    el.innerHTML = html;
+  });
+
   const sortButton = document.getElementById("sortButton");
   const sortDropdown = document.getElementById("sortDropdown");
 

@@ -1,4 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
+  const includeElements = document.querySelectorAll('[data-include-path]');
+
+  includeElements.forEach(async function(el) {
+    const path = el.getAttribute('data-include-path');
+    const response = await fetch(path);
+    const html = await response.text();
+    el.innerHTML = html;
+  });
+
   // 탭 전환 기능
   const tabButtons = document.querySelectorAll('.tab-button');
   const tabContents = document.querySelectorAll('.tab-content');
