@@ -38,6 +38,10 @@ app.get('/mypage-mentee', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'public', 'mypage-mentee.html'));
 });
 
+app.get('/write-review', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'public', 'write-review.html'));
+});
+
 app.get('/matching-type-selection', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'public', 'matching-type-selection.html'));
 });
