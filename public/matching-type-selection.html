@@ -28,6 +28,11 @@
         to { transform: scale(1); opacity: 1; }
       }
 
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
       .animate-fadeIn {
         animation: fadeIn 0.5s ease-out forwards;
       }
@@ -45,9 +50,27 @@
         transform: scale(1.05);
         transition: transform 0.2s ease;
       }
-      
+
       .selection-container {
         animation: fadeIn 0.5s ease-out forwards;
+      }
+
+      .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 5px solid rgba(79, 70, 229, 0.2);
+        border-radius: 50%;
+        border-top-color: #4F46E5;
+        animation: spin 1s linear infinite;
+        margin: 0 auto;
+      }
+
+      .loading-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 300px;
       }
     </style>
   </head>
@@ -56,7 +79,8 @@
 
     <main class="py-16">
       <div class="container mx-auto px-4">
-        <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-sm p-8 selection-container">
+        <!-- 매칭 유형 선택 화면 -->
+        <div id="matching-selection-container" class="max-w-2xl mx-auto bg-white rounded-lg shadow-sm p-8 selection-container">
           <div class="text-center mb-8">
             <div class="w-20 h-20 bg-indigo-100 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
               <i class="ri-user-search-line text-4xl"></i>
@@ -107,6 +131,100 @@
             <button id="confirmMatchingType"
                     class="bg-primary text-white text-lg px-10 py-4 w-full max-w-xs rounded-button font-semibold hover:bg-indigo-600 transition-all transform hover:scale-105">
               선택 완료
+            </button>
+          </div>
+        </div>
+
+        <!-- 로딩 화면 (초기에는 숨김) -->
+        <div id="loading-container" class="max-w-2xl mx-auto bg-white rounded-lg shadow-sm p-8 selection-container hidden">
+          <div class="loading-container">
+            <div class="loading-spinner mb-6"></div>
+            <h2 class="text-xl font-semibold text-gray-800 mb-2">AI 매칭 진행 중...</h2>
+            <p class="text-gray-600">최적의 매칭을 찾고 있습니다. 잠시만 기다려주세요.</p>
+          </div>
+        </div>
+
+        <!-- AI 매칭 완료 화면 (초기에는 숨김) -->
+        <div id="ai-matching-result-container" class="max-w-4xl mx-auto bg-white rounded-lg shadow-sm p-8 selection-container hidden">
+          <div class="text-center mb-8">
+            <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="ri-check-line text-4xl"></i>
+            </div>
+            <h1 class="text-3xl font-bold mb-3">AI 매칭 완료</h1>
+            <p class="text-gray-600 text-lg">AI가 추천하는 최적의 매칭 결과입니다.</p>
+            <div class="w-24 h-1 bg-green-500 mx-auto mt-4"></div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <!-- 매칭된 사람 1 -->
+            <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition cursor-pointer hover-scale">
+              <div class="text-center">
+                <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-3 overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="프로필 이미지" class="w-full h-full object-cover">
+                </div>
+                <h4 class="font-medium text-lg">김지연</h4>
+                <p class="text-sm text-gray-600 mb-2">멘토 • 서울시</p>
+                <div class="flex flex-wrap justify-center gap-1 mt-2">
+                  <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded-full">디자인</span>
+                  <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded-full">UX/UI</span>
+                </div>
+                <p class="text-sm text-gray-600 mt-3">매칭 점수: 95%</p>
+              </div>
+            </div>
+
+            <!-- 매칭된 사람 2 -->
+            <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition cursor-pointer hover-scale">
+              <div class="text-center">
+                <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-3 overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="프로필 이미지" class="w-full h-full object-cover">
+                </div>
+                <h4 class="font-medium text-lg">박민수</h4>
+                <p class="text-sm text-gray-600 mb-2">멘토 • 인천시</p>
+                <div class="flex flex-wrap justify-center gap-1 mt-2">
+                  <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded-full">개발</span>
+                  <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded-full">웹</span>
+                </div>
+                <p class="text-sm text-gray-600 mt-3">매칭 점수: 92%</p>
+              </div>
+            </div>
+
+            <!-- 매칭된 사람 3 -->
+            <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition cursor-pointer hover-scale">
+              <div class="text-center">
+                <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-3 overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="프로필 이미지" class="w-full h-full object-cover">
+                </div>
+                <h4 class="font-medium text-lg">이수진</h4>
+                <p class="text-sm text-gray-600 mb-2">멘토 • 부산시</p>
+                <div class="flex flex-wrap justify-center gap-1 mt-2">
+                  <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded-full">마케팅</span>
+                  <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded-full">SNS</span>
+                </div>
+                <p class="text-sm text-gray-600 mt-3">매칭 점수: 88%</p>
+              </div>
+            </div>
+
+            <!-- 매칭된 사람 4 -->
+            <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition cursor-pointer hover-scale">
+              <div class="text-center">
+                <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-3 overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="프로필 이미지" class="w-full h-full object-cover">
+                </div>
+                <h4 class="font-medium text-lg">최준호</h4>
+                <p class="text-sm text-gray-600 mb-2">멘토 • 대전시</p>
+                <div class="flex flex-wrap justify-center gap-1 mt-2">
+                  <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded-full">교육</span>
+                  <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded-full">코칭</span>
+                </div>
+                <p class="text-sm text-gray-600 mt-3">매칭 점수: 85%</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button id="continueToMatching" 
+                    class="bg-green-600 text-white text-lg px-10 py-4 w-full max-w-xs rounded-button font-semibold hover:bg-green-700 transition-all transform hover:scale-105">
+              매칭 상세 보기
             </button>
           </div>
         </div>
