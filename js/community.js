@@ -25,4 +25,12 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+
+  // 게시글 클릭 시 상세 페이지로 이동
+  const postItems = document.querySelectorAll('.border.border-gray-200.rounded-lg.p-4.hover\\:shadow-md.transition.cursor-pointer');
+  postItems.forEach(item => {
+    item.addEventListener('click', function() {
+      window.location.href = 'community-detail.html';
+    });
+  });
 });
