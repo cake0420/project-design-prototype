@@ -108,4 +108,46 @@ input:checked + .toggle-slider:before {
   background-color: #e5e7eb !important; /* 이미지 상 호버 배경색, gray-200 색상 */
   /* 글씨색은 비활성 기본색 유지 */
 }
+/* Fix for black ri-star-fill icons in Received Reviews */
+.tab-content#matching-content .space-y-4 i.ri-star-fill {
+  color: #FACC15; /* Tailwind yellow-400 color */
+}
+
+/* Optional: Fix for ri-star-line if it should be gray instead of yellow */
+/* Note: Your HTML currently applies text-yellow-400 to ri-star-line as well. */
+/* If empty stars should be gray, you can add this rule: */
+.tab-content#matching-content .space-y-4 i.ri-star-line {
+  color: #9CA3AF; /* Tailwind gray-400 color */
+}
+
+/* Ensure star icon in Average Satisfaction (Mentoring Stats) has the yellow-400 color */
+.tab-content#matching-content .bg-purple-50 i.ri-star-fill {
+  color: #FACC15; /* Tailwind yellow-400 color */
+  /* If the above line doesn't work, uncomment the line below */
+  /* color: #FACC15 !important; */
+}
+
+.tab-content#reviews-content .space-y-6 > div.border i.ri-star-half-fill {
+  color: #FACC15 !important; /* Tailwind yellow-400 color - Forced */
+}
+
+
+/* ====== Fix for star icon color in Written Reviews (Mentee Page) ====== */
+/* Target star icons within the rating container inside review items */
+.tab-content#reviews-content .space-y-6 div.border div.flex.items-center i.ri-star-fill {
+  color: #FACC15 !important; /* Tailwind yellow-400 color - Forced */
+}
+
+.tab-content#reviews-content .space-y-6 div.border div.flex.items-center i.ri-star-half-fill {
+  color: #FACC15 !important; /* Tailwind yellow-400 color - Forced */
+}
+
+/* Optional: Ensure line star icons are gray-400 (if present and should be gray) */
+/* Note: Your HTML currently applies text-yellow-400 to ri-star-line as well. */
+/* If you want empty stars to be gray: */
+.tab-content#reviews-content .space-y-6 div.border div.flex.items-center i.ri-star-line {
+  color: #9CA3AF !important; /* Tailwind gray-400 color - Forced */
+}
+/* ====== End Fix (Written Reviews - Mentee Page) ====== */
 /* ====== 페이징 스타일 끝 ====== */
+
